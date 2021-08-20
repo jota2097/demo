@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //    navigatorKey: NavigationService.instance.navigationKey,
       debugShowCheckedModeBanner: false,
       theme: buildTheme(),
       initialRoute: HomePage.page,

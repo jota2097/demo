@@ -60,9 +60,6 @@ class _HomePageState extends State<HomePage> {
                 height: paddingContainer + paddingContainer,
               ),
               MaintenancePage(),
-              SizedBox(
-                height: paddingContainer + paddingContainer,
-              ),
               NextInvoice(),
               SizedBox(
                 height: paddingContainer + paddingContainer,
