@@ -1,3 +1,4 @@
+import 'package:demo/style/styles.dart';
 import 'package:flutter/material.dart';
 
 class DrawerComponent extends StatelessWidget {
@@ -48,41 +49,56 @@ class DrawerComponent extends StatelessWidget {
           Expanded(
             child: ListView(
               children: [
-                ListTile(
-                  selectedTileColor: Colors.red,
-                  leading: Icon(Icons.home, color: Colors.blue[900]),
-                  title: Text('Home'),
-                  onTap: () => null,
-                ),
-                ListTile(
-                  leading: Icon(Icons.report),
-                  title: Text('Reports'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.portrait),
-                  title: Text('Accounts'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.favorite),
-                  title: Text('Quotes'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.shopping_basket),
-                  title: Text('Tickets'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.error_outline),
-                  title: Text('Notifications'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.article),
-                  title: Text('News'),
-                ),
+                _buildListTitle(
+                    context: context,
+                    text: "Home",
+                    iconData: Icons.home,
+                    color: Colors.blue[900]),
+                _buildListTitle(
+                    context: context,
+                    text: "Reports",
+                    iconData: Icons.analytics),
+                _buildListTitle(
+                    context: context,
+                    text: "Accounts",
+                    iconData: Icons.portrait),
+                _buildListTitle(
+                    context: context, text: "Quotes", iconData: Icons.favorite),
+                _buildListTitle(
+                    context: context,
+                    text: "Tickets",
+                    iconData: Icons.shopping_basket),
+                _buildListTitle(
+                    context: context,
+                    text: "Notifications",
+                    iconData: Icons.error_outline),
+                _buildListTitle(
+                    context: context, text: "News", iconData: Icons.article),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  ListTile _buildListTitle(
+      {required BuildContext context,
+      required String text,
+      required IconData iconData,
+      Color? color}) {
+    return ListTile(
+      leading: Icon(
+        iconData,
+        color: color == null ? Colors.grey[350] : color,
+      ),
+      trailing: Icon(
+        Icons.navigate_next,
+        color: color == null
+            ? Colors.grey[350]
+            : Theme.of(context).iconTheme.color,
+      ),
+      title: Text(text),
     );
   }
 }

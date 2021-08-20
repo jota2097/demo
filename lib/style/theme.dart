@@ -1,3 +1,4 @@
+import 'package:demo/style/styles.dart';
 import 'package:flutter/material.dart';
 
 const double defaultLetterSpacing = 0.3;
@@ -12,7 +13,7 @@ TextTheme _buildTextTheme() {
     ),
     headline2: TextStyle(
       fontSize: 16.0,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.bold,
       color: Colors.black,
       letterSpacing: defaultLetterSpacing,
     ),
@@ -20,6 +21,12 @@ TextTheme _buildTextTheme() {
       fontSize: 16.0,
       color: Colors.black,
       fontWeight: FontWeight.w300,
+      letterSpacing: defaultLetterSpacing,
+    ),
+    subtitle1: TextStyle(
+      fontSize: 16.0,
+      color: lightGreyColor,
+      fontWeight: FontWeight.bold,
       letterSpacing: defaultLetterSpacing,
     ),
   );
@@ -30,6 +37,7 @@ AppBarTheme _buildAppBarTheme() {
       elevation: 0.0,
       color: Colors.white,
       centerTitle: true,
+      iconTheme: IconThemeData(color: Colors.pink),
       actionsIconTheme: const IconThemeData(color: Colors.pink),
       textTheme: TextTheme(
           headline1: TextStyle(

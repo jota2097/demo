@@ -2,6 +2,8 @@ import 'package:demo/style/styles.dart';
 import 'package:flutter/material.dart';
 
 import '../components/common/drawer_component.dart';
+import 'maintenance.dart';
+import 'next_invoice.dart';
 import 'tickets.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,9 +26,10 @@ class _HomePageState extends State<HomePage> {
         userImage: _userImage,
       ),
       appBar: AppBar(
+        iconTheme: Theme.of(context).appBarTheme.iconTheme,
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 8),
+            padding: EdgeInsets.only(right: 20),
             child: CircleAvatar(
                 radius: 18,
                 backgroundColor: Colors.transparent,
@@ -34,27 +37,38 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body: Container(
-        padding:
-            EdgeInsets.only(left: paddingContainer, right: paddingContainer),
-        color: Colors.white,
-        child: PageView(
-          children: [
-            TicketsPage(),
-            // Column(
-            //   crossAxisAlignment: CrossAxisAlignment.stretch,
-            //   mainAxisAlignment: MainAxisAlignment.start,
-            //   children: [
-            //     Container(
-            //       padding: EdgeInsets.only(bottom: paddingContainer),
-            //       child: Text(
-            //         "Home",
-            //         style: Theme.of(context).textTheme.headline1,
-            //       ),
-            //     ),
-            //   ],
-            // ),
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.only(
+              left: paddingContainer,
+              right: paddingContainer,
+              top: paddingContainer),
+          color: Colors.white,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.only(bottom: paddingContainer),
+                child: Text(
+                  "Home",
+                  style: Theme.of(context).textTheme.headline1,
+                ),
+              ),
+              TicketsPage(),
+              SizedBox(
+                height: paddingContainer + paddingContainer,
+              ),
+              MaintenancePage(),
+              SizedBox(
+                height: paddingContainer + paddingContainer,
+              ),
+              NextInvoice(),
+              SizedBox(
+                height: paddingContainer + paddingContainer,
+              ),
+            ],
+          ),
         ),
       ),
     );
