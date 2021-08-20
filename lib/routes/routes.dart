@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../home.dart';
+import '../pages/home.dart';
 
 Map<String, WidgetBuilder> getApplicationRoutes(BuildContext context) {
   return <String, WidgetBuilder>{
